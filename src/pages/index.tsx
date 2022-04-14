@@ -14,7 +14,7 @@ export async function getStaticProps() {
     activities: await getActivities({ urls: sites }),
   });
 
-  return { props: { activityChronologies } };
+  return { props: { activityChronologies }, revalidate: 1 };
 }
 
 interface Props {
