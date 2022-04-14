@@ -1,8 +1,12 @@
+import { ActivityChronology } from 'components/ActivityChronology';
 import { sites } from 'config/sites';
 import { NextPage } from 'next';
 import NextHeadSeo from 'next-head-seo';
 import { getActivities } from 'utils/getActivities';
-import { ActivityChronology, groupByYear } from 'utils/groupByYear';
+import {
+  ActivityChronology as ActivityChronologyType,
+  groupByYear,
+} from 'utils/groupByYear';
 
 export async function getStaticProps() {
   const activityChronologies = groupByYear({
@@ -13,24 +17,23 @@ export async function getStaticProps() {
 }
 
 interface Props {
-  activityChronologies: ActivityChronology[];
+  activityChronologies: ActivityChronologyType[];
 }
 
 const Home: NextPage<Props> = ({ activityChronologies }) => {
   return (
-    <>
+    <div className="container mx-auto">
       <NextHeadSeo title="code lab | Timeline" />
-      {activityChronologies &&
-        activityChronologies.map(({ year, activities }, index) => (
-          <div key={index}>
-            <p>{year}</p>
-            {activities &&
-              activities.map((activity, index) => (
-                <p key={index}>{activity.title}</p>
-              ))}
-          </div>
+      <h2 className="text-2xl font-bold">Timeline</h2>
+      <div className="p-10">
+        {activityChronologies.map((activityChronology, index) => (
+          <ActivityChronology
+            key={index}
+            activityChronology={activityChronology}
+          />
         ))}
-    </>
+      </div>
+    </div>
   );
 };
 
