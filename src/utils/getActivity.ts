@@ -1,12 +1,15 @@
 import Parser from 'rss-parser';
-import type { ActivityType, GetActivityProps } from 'type';
+import type { ActivityType, Url } from 'type';
+
+export interface GetActivityProps {
+  url: Url;
+}
 
 const parser = new Parser();
 
 export const getActivity = async ({
   url,
 }: GetActivityProps): Promise<ActivityType[]> => {
-  console.log(url);
   const feed = await parser.parseURL(url);
 
   if (!feed?.items?.length) return [];
@@ -17,6 +20,7 @@ export const getActivity = async ({
       contentSnippet: contentSnippet?.replace(/\n/g, ''),
       link,
       isoDate,
+      year: isoDate?.split('-')[0],
     }),
   );
 

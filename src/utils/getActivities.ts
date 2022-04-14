@@ -1,5 +1,9 @@
-import type { ActivityType, GetActivitiesProps, GetActivityProps } from 'type';
+import type { ActivityType, Url } from 'type';
 import { getActivity } from './getActivity';
+
+export interface GetActivitiesProps {
+  urls: Url[];
+}
 
 export const getActivities = async ({
   urls,

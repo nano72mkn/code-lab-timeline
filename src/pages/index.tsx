@@ -1,25 +1,35 @@
 import { sites } from 'config/sites';
 import { NextPage } from 'next';
 import NextHeadSeo from 'next-head-seo';
-import { ActivityType } from 'type';
 import { getActivities } from 'utils/getActivities';
+import { ActivityChronology, groupByYear } from 'utils/groupByYear';
 
-export async function getSta() {
-  const data = await getActivities({ urls: sites });
+export async function getStaticProps() {
+  const activityChronologies = groupByYear({
+    activities: await getActivities({ urls: sites }),
+  });
 
-  return { props: { data } };
+  return { props: { activityChronologies } };
 }
 
 interface Props {
-  activity: ActivityType[];
+  activityChronologies: ActivityChronology[];
 }
 
-const Home: NextPage<Props> = ({ activity }) => {
-  console.log(activity);
+const Home: NextPage<Props> = ({ activityChronologies }) => {
   return (
     <>
-      <NextHeadSeo title="Home" />
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <NextHeadSeo title="code lab | Timeline" />
+      {activityChronologies &&
+        activityChronologies.map(({ year, activities }, index) => (
+          <div key={index}>
+            <p>{year}</p>
+            {activities &&
+              activities.map((activity, index) => (
+                <p key={index}>{activity.title}</p>
+              ))}
+          </div>
+        ))}
     </>
   );
 };
