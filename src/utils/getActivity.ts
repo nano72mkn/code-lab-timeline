@@ -21,6 +21,9 @@ export const getActivity = async ({
       link,
       isoDate,
       year: isoDate?.split('-')[0],
+      favicon: `http://www.google.com/s2/favicons?sz=32&domain=${
+        new URL(url).hostname
+      }`,
     }),
   );
 

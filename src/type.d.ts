@@ -5,4 +5,5 @@ export interface ActivityType {
   link: string;
   isoDate: string;
   year: string;
+  favicon: string;
 }
