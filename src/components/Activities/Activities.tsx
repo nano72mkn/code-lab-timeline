@@ -10,8 +10,7 @@ export const Activities: React.FC<ActivitiesProps> = ({ activities }) => {
     <div className="space-y-5">
       {activities.map((activity, index) => (
         <div key={index} className="relative">
-          <div className="absolute -left-10 top-1/2 -mt-1.5 -ml-1.5 w-3 h-3 bg-gray-300 rounded-full" />
-          <div className="absolute -left-5 top-1/2 -ml-1.5 w-4 border border-b-1 border-gray-200" />
+          <div className="absolute -left-5 md:-left-10 top-1/2 -mt-1 -ml-1 w-2 h-2 bg-gray-200 rounded-full" />
           <ActivityCard activity={activity} />
         </div>
       ))}
