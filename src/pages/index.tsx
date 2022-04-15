@@ -1,6 +1,7 @@
 import { ActivityChronology } from 'components/ActivityChronology';
 import { Header } from 'components/Header';
 import { sites } from 'config/sites';
+import { motion, Variants } from 'framer-motion';
 import { NextPage } from 'next';
 import NextHeadSeo from 'next-head-seo';
 import { getActivities } from 'utils/getActivities';
@@ -22,6 +23,14 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ activityChronologies }) => {
+  const containerVariants: Variants = {
+    active: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+    disabled: {},
+  };
   return (
     <div className="container mx-auto px-5">
       <NextHeadSeo
@@ -37,14 +46,19 @@ const Home: NextPage<Props> = ({ activityChronologies }) => {
         <Header />
       </div>
       <h2 className="text-2xl font-bold">Timeline</h2>
-      <div className="py-10">
+      <motion.div
+        className="py-10"
+        variants={containerVariants}
+        initial="disabled"
+        animate="active"
+      >
         {activityChronologies.map((activityChronology, index) => (
           <ActivityChronology
             key={index}
             activityChronology={activityChronology}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
