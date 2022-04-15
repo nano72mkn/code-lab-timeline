@@ -24,7 +24,15 @@ interface Props {
 const Home: NextPage<Props> = ({ activityChronologies }) => {
   return (
     <div className="container mx-auto px-5">
-      <NextHeadSeo title="code lab | Timeline" />
+      <NextHeadSeo
+        title="code lab | Timeline"
+        customLinkTags={[
+          {
+            rel: 'icon',
+            href: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🤔</text></svg>',
+          },
+        ]}
+      />
       <div className="mb-10">
         <Header />
       </div>
