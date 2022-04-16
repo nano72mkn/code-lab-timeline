@@ -17,7 +17,7 @@ export const getActivity = async ({
   const activities = feed.items.map(
     ({ title, contentSnippet, link, isoDate }) => ({
       title,
-      contentSnippet: contentSnippet?.replace(/\n/g, ''),
+      contentSnippet: contentSnippet ? contentSnippet.replace(/\n/g, '') : '',
       link,
       isoDate,
       year: isoDate?.split('-')[0],
