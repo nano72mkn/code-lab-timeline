@@ -54,6 +54,10 @@ const Home: NextPage<Props> = ({ activityChronologies }) => {
             href: '/favicon-16x16.png',
           },
           {
+            rel: 'shortcut icon',
+            href: '/favicon.ico',
+          },
+          {
             rel: 'manifest',
             href: '/site.webmanifest',
           },
