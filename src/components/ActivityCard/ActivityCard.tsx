@@ -24,7 +24,7 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
             alt="favicon"
           />
         </span>
-        <p className="font-bold break-all flex-1">{activity.title}</p>
+        <p className="font-bold break-words flex-1">{activity.title}</p>
       </div>
       <p className="text-sm text-gray-900/50">
         {subYears(new Date(), 1) > new Date(activity.isoDate)
