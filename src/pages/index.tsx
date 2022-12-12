@@ -1,14 +1,14 @@
-import { ActivityChronology } from 'components/ActivityChronology';
-import { Header } from 'components/Header';
-import { sites } from 'config/sites';
-import { motion, Variants } from 'framer-motion';
-import { NextPage } from 'next';
-import NextHeadSeo from 'next-head-seo';
-import { getActivities } from 'utils/getActivities';
+import { ActivityChronology } from "components/ActivityChronology";
+import { Header } from "components/Header";
+import { sites } from "config/sites";
+import { motion, Variants } from "framer-motion";
+import { NextPage } from "next";
+import NextHeadSeo from "next-head-seo";
+import { getActivities } from "utils/getActivities";
 import {
   ActivityChronology as ActivityChronologyType,
   groupByYear,
-} from 'utils/groupByYear';
+} from "utils/groupByYear";
 
 export async function getStaticProps() {
   const activityChronologies = groupByYear({
@@ -37,29 +37,33 @@ const Home: NextPage<Props> = ({ activityChronologies }) => {
         title="code lab | Timeline"
         customLinkTags={[
           {
-            rel: 'apple-touch-icon',
-            sizes: '180x180',
-            href: '/apple-touch-icon.png',
+            rel: "apple-touch-icon",
+            sizes: "180x180",
+            href: "/apple-touch-icon.png",
           },
           {
-            rel: 'icon',
-            type: 'image/png',
-            sizes: '32x32',
-            href: '/favicon-32x32.png',
+            rel: "icon",
+            type: "image/png",
+            sizes: "32x32",
+            href: "/favicon-32x32.png",
           },
           {
-            rel: 'icon',
-            type: 'image/png',
-            sizes: '16x16',
-            href: '/favicon-16x16.png',
+            rel: "icon",
+            type: "image/png",
+            sizes: "16x16",
+            href: "/favicon-16x16.png",
           },
           {
-            rel: 'shortcut icon',
-            href: '/favicon.ico',
+            rel: "shortcut icon",
+            href: "/favicon.ico",
           },
           {
-            rel: 'manifest',
-            href: '/site.webmanifest',
+            rel: "manifest",
+            href: "/site.webmanifest",
+          },
+          {
+            rel: "author",
+            href: "http://www.hatena.ne.jp/shota1995m/",
           },
         ]}
       />
