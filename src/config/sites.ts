@@ -8,4 +8,5 @@ export const sites: Url[] = [
   'https://github.com/shota1995m/planning-poker-remix/releases.atom',
   'https://github.com/shota1995m/github-readme-blog-score/releases.atom',
   'https://github.com/shota1995m/code-lab-blog/releases.atom',
+  'https://shota1995m.hatenablog.com/feed',
 ];
