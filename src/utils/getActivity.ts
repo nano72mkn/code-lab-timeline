@@ -14,11 +14,6 @@ export const getActivity = async ({
 
   if (!feed?.items?.length) return [];
 
-  console.log(
-    `http://www.google.com/s2/favicons?sz=32&domain=https://${
-      new URL(url).hostname
-    }`,
-  );
   const activities = feed.items.map(
     ({ title, contentSnippet, link, isoDate }) => ({
       title,
